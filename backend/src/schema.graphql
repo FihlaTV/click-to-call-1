@@ -1,0 +1,46 @@
+# import * from './generated/prisma.graphql'
+type SuccessMessage {
+  message: String
+}
+
+type Mutation {
+  createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
+  updateItem(id: ID!, title: String, description: String, price: Int): Item!
+  deleteItem(id: ID!): Item
+  signup(email: String!, password: String!, name: String!): User!
+  signin(email: String!, password: String!): User!
+  signout: SuccessMessage
+  requestReset(email: String!): SuccessMessage
+  resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
+  updatePermissions(permissions: [Permission], userId: ID!): User
+  addToCart(id: ID!): CartItem
+  removeFromCart(id: ID!): CartItem
+  createOrder(token: String!): Order!
+  createCampaignItem(title: String!, expiration: String, connectKey: String, targetType: String, dynamicScripts: String, generateURLAlias: String, customURL: String, callBody: String, defaultScript: String): CampaignItem!
+  updateCampaignItem(id: ID!, title: String, expiration: String, connectKey: String, targetType: String, dynamicScripts: String, generateURLAlias: String, customURL: String, callBody: String, defaultScript: String, targetCandidates: Json, thankYouTitle: String, thankYouMessage: String, emailTitle: String, emailBody: String, facebookTitle: String, facebookURL: String, facebookBody: String, facebookImage: String, twitterTitle: String, twitterURL: String, twitterBody: String, twitterImage: String): CampaignItem!
+  createCampaignScript(title: String!, scriptContent: String, campaignID: String, data: Json, targetCondition2: String, targetCondition3: String, targetCondition4: String ): CampaignScript!
+  updateCampaignScript(id: ID!, title: String, scriptContent: String, campaignID: String, data: Json, targetCondition2: String, targetCondition3: String, targetCondition4: String): CampaignScript!
+
+}
+
+type Query {
+  items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, first: Int): [Item]!
+  item(where: ItemWhereUniqueInput!): Item
+  itemsConnection(where: ItemWhereInput): ItemConnection!
+  me: User
+  users: [User]!
+  order(id: ID!): Order
+  orders(orderBy: OrderOrderByInput): [Order]!
+  campaignItems(where: CampaignItemWhereInput, orderBy: CampaignItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CampaignItem]!
+  campaignItem(where: CampaignItemWhereUniqueInput!): CampaignItem
+  campaignScripts(where: CampaignScriptWhereInput, orderBy: CampaignScriptOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [CampaignScript]!
+  campaignScript(where: CampaignScriptWhereUniqueInput): CampaignScript
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  permissions: [Permission!]!
+  cart: [CartItem!]!
+}

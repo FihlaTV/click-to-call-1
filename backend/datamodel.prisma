@@ -1,0 +1,94 @@
+enum Permission {
+  ADMIN
+  USER
+  ITEMCREATE
+  ITEMUPDATE
+  ITEMDELETE
+  PERMISSIONUPDATE
+}
+
+type User {
+  id: ID! @id
+  name: String
+  email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: String
+  permissions: [Permission] @scalarList(strategy: RELATION)
+  cart: [CartItem!]
+}
+
+type Item {
+  id: ID! @id
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  user: User
+}
+
+type CartItem {
+  id: ID! @id
+  quantity: Int! @default(value:1)
+  item: Item
+  user: User!
+}
+
+type OrderItem {
+  id: ID! @id
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  quantity: Int! @default(value:1)
+  user: User!
+}
+
+type Order {
+  id: ID! @id
+  items: [OrderItem]!
+  total: Int!
+  user: User!
+  charge: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type CampaignItem {
+  id: ID! @id
+  title: String!
+  expiration: String
+  connectKey: String
+  targetType: String
+  dynamicScripts: String
+  generateURLAlias: String
+  customURL: String
+  callBody: String
+  defaultScript: String
+  targetCandidates: Json
+  thankYouTitle: String
+  thankYouMessage: String
+  emailTitle: String
+  emailBody: String
+  facebookTitle: String
+  facebookURL: String
+  facebookBody: String
+  facebookImage: String
+  twitterTitle: String
+  twitterURL: String
+  twitterBody: String
+  twitterImage: String
+}
+
+type CampaignScript {
+  id: ID! @id
+  title: String!
+  scriptContent: String
+  campaignID: String
+  data: Json
+  targetCondition2: String
+  targetCondition3: String
+  targetCondition4: String
+}
