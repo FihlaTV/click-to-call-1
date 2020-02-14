@@ -25,7 +25,7 @@ class DashboardItems extends Component {
     return (
         <Query
           query={ALL_DASHBOARD_ITEMS_QUERY}
-        //   fetchPolicy="network-only"
+          fetchPolicy="network-only"
         >
           {({ data, error, loading }) => {
             if (loading) return <p>Loading...</p>;

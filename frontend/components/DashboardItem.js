@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 
 
+
 class DashboardItem extends React.Component {
 
     render() {
 
         const { item } = this.props;
-
+        // let itemurl;
+        // if(item.customURL == null || item.customURL == '') {
+        //     itemurl = item.id
+        // } else {
+        //     itemurl = item.customURL
+        // }
         return (
 
             <tr>
@@ -38,9 +44,9 @@ class DashboardItem extends React.Component {
                     >
                         <a className="editbtn">Edit </a>
                     </Link>
-                    <Link href="#">
+                    {/* <Link href="#">
                         <a className="dupbtn"> Duplicate</a>
-                    </Link>
+                    </Link> */}
                 </td>
             </tr>
         )

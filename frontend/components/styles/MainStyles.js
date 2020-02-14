@@ -648,7 +648,7 @@ a.createnew {
           border-bottom: 2px solid #000;
           h3 {
               display: inline-block;
-              margin: 0 0 12px;
+              margin: 0 0 0;
               vertical-align: text-top;
           }
           .editCampaignScript {

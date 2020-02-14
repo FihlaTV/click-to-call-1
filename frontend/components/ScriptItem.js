@@ -20,9 +20,8 @@ class ScriptItem extends Component {
                     <a>Edit</a>
                 </Link>
 
-                <h6>Last Modified at 11:59 PM, 12/31/2018</h6>
             </div>
-            {/* <h4>{item.campaignID}</h4> */}
+
         </div>
     );
   }

@@ -146,7 +146,10 @@ class UpdateScript extends Component {
                     <div className="setTargetingCondition">
                       <h3>Set Targeting Condition</h3>
 
-                      <DynamicSelect defaultValue={data.campaignScript.data} data={houseMembers} onChange={this.onDropdownChange} />
+                      <DynamicSelect
+                        defaultValue={data.campaignScript.data}
+                        data={houseMembers}
+                        onChange={this.onDropdownChange} />
 
                       <div className="addNewCondition">
                         <p>

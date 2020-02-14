@@ -3341,7 +3341,7 @@ const houseMembers = [
       date: "2015-01-06",
       party: "Republican Party",
       district: "2",
-      state: "VA"
+      state: "WV"
     },
     {
       label: "Michael McCaul",

@@ -14,8 +14,8 @@ import { FetchType } from "apollo-client";
 
 
 const SINGLE_CAMPAIGN_ITEM_QUERY = gql`
-  query SINGLE_CAMPAIGN_ITEM_QUERY($id: String!) {
-    campaignItems(where: { customURL: $id }) {
+  query SINGLE_CAMPAIGN_ITEM_QUERY($id: ID!) {
+    campaignItem(where: { id: $id }) {
       id
       title
       connectKey
@@ -55,7 +55,8 @@ class PreviewCampaignItem extends Component {
     officialItems: [],
     divisionItems: [],
     candidateParty: '',
-    candidateState: ''
+    candidateState: '',
+    candidateDistrict: '',
   };
 
   handleChange = e => {
@@ -74,19 +75,30 @@ class PreviewCampaignItem extends Component {
       body: data
     });
 
-    const fetchdata = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBZJiENz59YA6HdE9fbqdrAYPmayg9i61I&address="+encodeURI(this.state.streetAddress)+"+"+this.state.postalCode)
+    // const fetchdata = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBZJiENz59YA6HdE9fbqdrAYPmayg9i61I&address="+encodeURI(this.state.streetAddress)+"+"+this.state.postalCode)
+    //   .then(res => res.json());
+
+      const fetchdata = await fetch("https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyBZJiENz59YA6HdE9fbqdrAYPmayg9i61I&address=136+E+Scribner+Ave+15801")
       .then(res => res.json());
 
       console.log(fetchdata);
 
+
+
       if(fetchdata.officials[0]) {
+
+
+        let dstr = fetchdata.offices[3].divisionId;
+        let dres = dstr.split("/cd:");
+
         this.setState({
           isLoaded: true,
           officeItems: fetchdata.offices,
           officialItems: fetchdata.officials[4].name,
           divisionItems: fetchdata.divisions,
           candidateParty: fetchdata.officials[4].party,
-          candidateState: fetchdata.normalizedInput.state
+          candidateState: fetchdata.normalizedInput.state,
+          candidateDistrict: dres[1]
         });
       } else {
         (error) => {
@@ -110,6 +122,10 @@ class PreviewCampaignItem extends Component {
   componentDidMount = e => {
     console.log(this.props.id);
     // Router.push('/custom-url', { shallow: true })
+
+
+
+
   }
 
 
@@ -125,8 +141,8 @@ class PreviewCampaignItem extends Component {
       >
         {({ data, loading, error }) => {
           if (loading) return <p>Loading...</p>;
-          console.log(data.campaignItems[0]);
-          if(data.campaignItems.expiration === 'false') {
+          console.log(data.campaignItem);
+          if(data.campaignItem.expiration === 'false') {
             return (
               <MainStyles>
                 <p className="expired">This campaign has expired.</p>
@@ -140,7 +156,7 @@ class PreviewCampaignItem extends Component {
               <Error error={error} />
               <MainStyles>
                 <Head>
-                  <title>{data.campaignItems[0].title}</title>
+                  <title>{data.campaignItem.title}</title>
                   <meta
                     property="og:site_name"
                     content="Indivisible"
@@ -159,11 +175,11 @@ class PreviewCampaignItem extends Component {
                   />
                   <meta
                     property="og:description"
-                    content={data.campaignItems[0].facebookBody}
+                    content={data.campaignItem.facebookBody}
                   />
                   <meta
                     property="og:image"
-                    content={data.campaignItems[0].facebookImage}
+                    content={data.campaignItem.facebookImage}
                   />
                   <meta name="twitter:card" content="summary_large_image" />
                   <meta
@@ -173,15 +189,15 @@ class PreviewCampaignItem extends Component {
                   <meta name="twitter:url" content="https://indivisible.org" />
                   <meta
                     name="twitter:title"
-                    content={"Indivisible -" + data.campaignItems[0].title}
+                    content={"Indivisible -" + data.campaignItem.title}
                   />
                   <meta
                     name="twitter:description"
-                    content={data.campaignItems[0].twitterBody}
+                    content={data.campaignItem.twitterBody}
                   />
                   <meta
                     name="twitter:image"
-                    content={data.campaignItems[0].twitterImage}
+                    content={data.campaignItem.twitterImage}
                   />
                 </Head>
 
@@ -193,10 +209,10 @@ class PreviewCampaignItem extends Component {
                   }
                 >
                   <div className="heroLeft">
-                    <h2>{data.campaignItems[0].title}</h2>
+                    <h2>{data.campaignItem.title}</h2>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.campaignItems[0].callBody
+                        __html: data.campaignItem.callBody
                       }}
                     />
                   </div>
@@ -291,10 +307,11 @@ class PreviewCampaignItem extends Component {
 
                     <MatchedScripts
                       id={this.props.id}
-                      candidates={data.campaignItems[0].targetCandidates}
+                      candidates={data.campaignItem.targetCandidates}
                       matchedCand={this.state.officialItems}
                       candParty={this.state.candidateParty}
                       candState={this.state.candidateState}
+                      candDistrict={this.state.candidateDistrict}
                     />
 
 
@@ -303,7 +320,7 @@ class PreviewCampaignItem extends Component {
                       <div className="scriptContainer">
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: data.campaignItems[0].defaultScript
+                            __html: data.campaignItem.defaultScript
                           }}
                         />
                       </div>
@@ -347,14 +364,14 @@ class PreviewCampaignItem extends Component {
                     <h2>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.campaignItems[0].thankYouTitle
+                          __html: data.campaignItem.thankYouTitle
                         }}
                       />
                     </h2>
 
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: data.campaignItems[0].thankYouMessage
+                        __html: data.campaignItem.thankYouMessage
                       }}
                     />
 

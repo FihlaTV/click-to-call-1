@@ -22,6 +22,7 @@ class Question extends React.Component {
 
       this.state = {
         answers: props.data,
+        initNames: targetType,
         names: targetType,
         targetTypes: props.targetType
       };
@@ -35,7 +36,7 @@ class Question extends React.Component {
     filterList = (event) => {
       event.preventDefault();
 
-      let items = this.props.questionChoices;
+      let items = this.state.initNames;
 
       items = items.filter((item) => {
 
@@ -84,7 +85,7 @@ class Question extends React.Component {
         answers.push(answer);
       });
 
-      if(stateanswers[0]) {
+      if(stateanswers) {
         // Update existing candidates with new answers
         stateanswers.map(sans => {
           let sansID = sans.id;
@@ -124,7 +125,7 @@ class Question extends React.Component {
     // }
 
     onInput(e, props) {
-
+      e.preventDefault();
       const id = e.target.name;
       const answer = { id, answer: e.target.value };
       let answers;

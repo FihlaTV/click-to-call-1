@@ -72,13 +72,14 @@ class AutoComplete extends React.Component {
           { isOpen && (
             <DropDown>
               {this.state.items.map((item, index) => (
-                <DropDownItem
-                  {...getItemProps({item})}
-                  key={item.id}
-                  highlighted={index === highlightedIndex}
-                >
-                  {item.title}
-                </DropDownItem>
+                console.log(item)
+                // <DropDownItem
+                //   {...getItemProps({item})}
+                //   key={item.id}
+                //   highlighted={index === highlightedIndex}
+                // >
+                //   {item.title}
+                // </DropDownItem>
               ))}
             </DropDown>
           )}

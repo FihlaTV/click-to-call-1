@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import PreviewCampaignItem from '../../components/PreviewCampaignItem';
 
-export default function Post() {
-  const router = useRouter();
 
-  console.log('helllo');
+function PP() {
+  const router = useRouter();
 
   return (
     <>
@@ -13,3 +12,5 @@ export default function Post() {
     </>
   );
 }
+
+export default PP;

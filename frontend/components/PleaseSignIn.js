@@ -23,8 +23,8 @@ const PleaseSignIn = (props) => (
                     <div>
                         <Signout />
 
-                        {/* <Dashboard /> */}
-                        <Permissions />
+                        <Dashboard />
+                        {/* <Permissions /> */}
                     </div>
                 );
             }
