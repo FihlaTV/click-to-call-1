@@ -1,4 +1,7 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: https://powerful-ravine-38604.herokuapp.com/ctc-prod/prod
+#endpoint: https://powerful-ravine-38604.herokuapp.com/ind-ctc-prod/prod
+endpoint: https://powerful-ravine-38604.herokuapp.com/ind-ctc-prod/prod
 datamodel: datamodel.prisma
 # secret: ${env:PRISMA_SECRET}
 hooks:

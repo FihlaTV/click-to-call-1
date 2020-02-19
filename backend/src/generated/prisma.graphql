@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/sam-kahle/click-to-call/dev
-# timestamp: Tue Feb 11 2020 10:22:51 GMT-0500 (Eastern Standard Time)
+# timestamp: Fri Feb 14 2020 15:06:42 GMT-0500 (Eastern Standard Time)
 
 type AggregateCampaignItem {
   count: Int!
@@ -58,6 +58,7 @@ type CampaignItem implements Node {
   twitterURL: String
   twitterBody: String
   twitterImage: String
+  user: User
 }
 
 """A connection to a list of items."""
@@ -94,6 +95,7 @@ input CampaignItemCreateInput {
   twitterURL: String
   twitterBody: String
   twitterImage: String
+  user: UserCreateOneInput
 }
 
 """An edge in a connection."""
@@ -242,6 +244,7 @@ input CampaignItemUpdateInput {
   twitterURL: String
   twitterBody: String
   twitterImage: String
+  user: UserUpdateOneInput
 }
 
 input CampaignItemUpdateManyMutationInput {
@@ -1158,6 +1161,7 @@ input CampaignItemWhereInput {
 
   """All values not ending with the given string."""
   twitterImage_not_ends_with: String
+  user: UserWhereInput
 }
 
 input CampaignItemWhereUniqueInput {

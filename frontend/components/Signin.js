@@ -32,7 +32,7 @@ class Signin extends Component {
             refetchQueries={[{query: CURRENT_USER_QUERY}]}
         >
             {(signup, { error, loading }) => (
-            <Form method="post" onSubmit={ async e => {
+            <Form className="signInForm" method="post" onSubmit={ async e => {
                 e.preventDefault();
                 await signup();
                 this.setState({ name: '', email: '', password: ''});

@@ -227,7 +227,7 @@ class CampaignItem extends Component {
                   </label>
                 </div>
 
-                <div className="URLPathSettings">
+                {/* <div className="URLPathSettings">
                   <h2>URL Path Settings</h2>
 
                   <label>
@@ -262,7 +262,7 @@ class CampaignItem extends Component {
                     about page. Use a relative path and don't add a trailing
                     slash or the URL alias won't work.
                   </p>
-                </div>
+                </div> */}
 
                 <CallYourRepContainer>
                   <h2>CALL YOUR REPRESENTATIVE</h2>

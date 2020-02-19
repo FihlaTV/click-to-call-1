@@ -4,8 +4,26 @@ const MainStyles = styled.div`
 
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
 
-  h1, h2, h3, h4, h5, h6, p, a, li, label, button, input {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  li,
+  label,
+  button,
+  input {
     font-family: 'Montserrat', sans-serif;
+  }
+
+  #pleaseLogIn {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    max-width: 1000px;
   }
 
   a:hover, button:hover {
@@ -233,12 +251,14 @@ label p {
     display: inline-block;
 }
 .dupbtn {
-    background: #D56D6D;
-    color: white;
-    padding: 1px 0;
-    width: 90px;
-    text-align: center;
-    display: inline-block;
+  background: #D56D6D;
+  color: white;
+  padding: 6.5px 0;
+  width: 90px !important;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
+  border: 0;
 }
 td:last-child, th:last-child {
     border-right: none;
@@ -251,13 +271,20 @@ td, th {
     border-bottom: 2px solid #EDEDED;
     text-align: center;
 }
-a.createnew {
-    color: #2D4C6B;
-    font-size: 1.2em;
+.createnew {
     margin: 20px auto;
     display: block;
     max-width: 1000px;
-
+    a {
+      color: #2D4C6B;
+      font-size: 1.2em;
+    }
+    img {
+      width: 50px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
 }
 .dashboardh1 {
 
@@ -272,6 +299,57 @@ a.createnew {
 .offexp {
     color: red;
 }
+
+.executeTasks {
+  display: inline-block;
+  margin: 0 0 0 70px;
+  position: relative;
+
+  a {
+    background: #2D4C6B;
+    color: white;
+    margin-left: 200px;
+    padding: 5px 20px;
+  }
+}
+.select-css {
+	display: inline-block;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #444;
+  line-height: 1.3;
+  padding: 5px 15px 5px 5px;
+  width: 200px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 0;
+  -moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
+
 
 
 #searchTypeToggle {
@@ -676,6 +754,7 @@ a.createnew {
       margin: 30px 0 30px;
       display: block;
   }
+
   .search-div {
         width: 100%;
         margin: 10rem auto 2rem auto;
@@ -713,9 +792,8 @@ a.createnew {
         outline: none;
         opacity: 0.6;
       }
-
-
   }
+
   ul.options {
     display: block;
     list-style: none;
@@ -755,10 +833,13 @@ a.createnew {
   .breadcrumb {
     font-size: 20px;
     color: #6C9FC2;
-    display:block;
+    display: block;
+    position: relative;
+    z-index: 1000;
     margin: -45px auto 45px;
-    width: 200px;
+    width: 250px;
   }
+
   .candidatePerson {
     margin-bottom: -2px;
     border: 2px solid #000;

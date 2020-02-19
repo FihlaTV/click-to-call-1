@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -389,14 +389,7 @@ function (_React$Component) {
         }, function () {
           return console.log(_this.state.answers);
         });
-      } // var c = newstateanswers.concat(answers);
-      // console.log(stateanswers);
-      // console.log(answers);
-      // console.log(c);
-      // var c = newstateanswers.concat(answers);
-      // console.log(c);
-      // this.setState({answers: []}, () => console.log(this.state.answers));
-
+      }
     });
 
     var targetType = [];
@@ -415,7 +408,6 @@ function (_React$Component) {
       names: targetType,
       targetTypes: props.targetType
     };
-    console.log(_this.state);
     _this.onInput = _this.onInput.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.buildRadioButtons = _this.buildRadioButtons.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
@@ -423,18 +415,12 @@ function (_React$Component) {
 
   _createClass(Question, [{
     key: "onInput",
-    // Update answer state to include new candidates
-    // resetList = (event) => {
-    //   event.preventDefault();
-    //   this.setState({names: this.props.questionChoices});
-    //   console.log(this.state.names);
-    // }
     value: function onInput(e, props) {
       var _this2 = this;
 
-      e.preventDefault();
+      // e.preventDefault();
       var id = e.target.name;
-      var answer = {
+      var answer2 = {
         id: id,
         answer: e.target.value
       };
@@ -446,12 +432,12 @@ function (_React$Component) {
         })) {
           answers = _toConsumableArray(this.state.answers.filter(function (answer) {
             return answer.id !== id;
-          })).concat([answer]);
+          })).concat([answer2]);
         } else {
-          answers = _toConsumableArray(this.state.answers).concat([answer]);
+          answers = _toConsumableArray(this.state.answers).concat([answer2]);
         }
       } else {
-        answers = [answer];
+        answers = [answer2];
       }
 
       this.setState({
@@ -466,14 +452,12 @@ function (_React$Component) {
       var _this3 = this;
 
       return arr.map(function (choice, i) {
-        // console.log(choice);
-        // console.log(checked);
         if (choice == checked) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
             key: i,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 156
+              lineNumber: 131
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -487,7 +471,7 @@ function (_React$Component) {
             value: choice,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 157
+              lineNumber: 132
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -495,7 +479,7 @@ function (_React$Component) {
             className: choice + "Label",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 167
+              lineNumber: 142
             },
             __self: this
           }, choice));
@@ -504,7 +488,7 @@ function (_React$Component) {
             key: i,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 172
+              lineNumber: 147
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -518,7 +502,7 @@ function (_React$Component) {
             value: choice,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 173
+              lineNumber: 148
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -526,7 +510,7 @@ function (_React$Component) {
             className: choice + "Label",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 183
+              lineNumber: 158
             },
             __self: this
           }, choice));
@@ -566,20 +550,20 @@ function (_React$Component) {
           key: i,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 217
+            lineNumber: 192
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 218
+            lineNumber: 193
           },
           __self: this
         }, questionText), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "switch-field",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 219
+            lineNumber: 194
           },
           __self: this
         }, _this4.buildRadioButtons(choices, questionType, questionID, question.answer)));
@@ -587,20 +571,20 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 226
+          lineNumber: 201
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "candidateSearch",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 227
+          lineNumber: 202
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 203
         },
         __self: this
       }, "Filter: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -610,78 +594,79 @@ function (_React$Component) {
         onChange: this.filterList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 229
+          lineNumber: 204
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "executeTasks",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 233
+          lineNumber: 205
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 235
+          lineNumber: 207
         },
         __self: this
       }, "Execute: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.handleSelectChange,
         value: this.state.candidateStance,
         name: "candidateStance",
+        className: "select-css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 237
+          lineNumber: 209
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 242
+          lineNumber: 215
         },
         __self: this
       }, "Choose an Option"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "support",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 243
+          lineNumber: 216
         },
         __self: this
       }, "Support"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "oppose",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 244
+          lineNumber: 217
         },
         __self: this
       }, "Oppose"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "other",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 245
+          lineNumber: 218
         },
         __self: this
       }, "Other"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "none",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 246
+          lineNumber: 219
         },
         __self: this
       }, "None")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.executeTasks,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 249
+          lineNumber: 222
         },
         __self: this
       }, "Execute"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "targetPeopleContainer",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 254
+          lineNumber: 227
         },
         __self: this
       }, iterator));
@@ -1004,18 +989,12 @@ var SearchCandidates =
 function (_React$Component) {
   _inherits(SearchCandidates, _React$Component);
 
-  function SearchCandidates() {
-    var _getPrototypeOf2;
-
+  function SearchCandidates(props) {
     var _this;
 
     _classCallCheck(this, SearchCandidates);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SearchCandidates)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SearchCandidates).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       initialItems: [],
@@ -1041,12 +1020,10 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentWillMount", function () {
-      _this.setState({
-        initialItems: _this.props.content,
-        items: _this.props.content,
-        data: _this.props.data
-      });
+    _this.setState({
+      initialItems: _this.props.content,
+      items: _this.props.content,
+      data: _this.props.data
     });
 
     return _this;
@@ -1058,7 +1035,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 38
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1067,20 +1044,20 @@ function (_React$Component) {
         onChange: this.filterList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 40
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         onClick: this.resetList,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 41
         },
         __self: this
       }, "RESET"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 42
         },
         __self: this
       }, this.state.data.map(function (item) {
@@ -1088,7 +1065,7 @@ function (_React$Component) {
           key: item.id.bioguide,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 46
           },
           __self: this
         }, item.name.official_full);
@@ -1454,7 +1431,8 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateCampaignItem).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      candidatePerspective: []
+      candidatePerspective: [],
+      shouldHideDS: false
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleCheckboxChange", function (e) {
@@ -1534,6 +1512,16 @@ function (_Component) {
       _this.setState(_defineProperty({}, name, value));
 
       console.log(_defineProperty({}, name, value));
+
+      if (value == 'No') {
+        _this.setState({
+          shouldHideDS: true
+        });
+      } else {
+        _this.setState({
+          shouldHideDS: false
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "uploadTwitterFile",
@@ -1669,7 +1657,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 252
+          lineNumber: 259
         },
         __self: this
       }, function (_ref4) {
@@ -1679,30 +1667,33 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 257
+            lineNumber: 264
           },
           __self: this
         }, "Loading...");
         if (data.item) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 258
+            lineNumber: 265
           },
           __self: this
         }, "No Item Found for ID...");
         if (error) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 259
+            lineNumber: 266
           },
           __self: this
-        }, "Error: ", error.message);
+        }, "Error: ", error.message); // this.setState({
+        //   facebookImage: data.campaignItem.twitterImage
+        // });
+
         return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_4__["Mutation"], {
           mutation: UPDATE_CAMPAIGN_MUTATION,
           variables: _this2.state,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 262
+            lineNumber: 273
           },
           __self: this
         }, function (updateCampaignItem, _ref5) {
@@ -1711,34 +1702,34 @@ function (_Component) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 267
+              lineNumber: 278
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_5__["default"], {
             error: error,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 268
+              lineNumber: 279
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_styles_MainStyles__WEBPACK_IMPORTED_MODULE_12__["default"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 269
+              lineNumber: 280
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_8___default.a, {
             href: "/dashboard",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 270
+              lineNumber: 281
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
             className: "breadcrumb",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 271
+              lineNumber: 282
             },
             __self: this
           }, "Back to Dashboard")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
@@ -1748,27 +1739,27 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 274
+              lineNumber: 285
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 280
+              lineNumber: 291
             },
             __self: this
           }, data.campaignItem.title), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "onoffswitchcontainer",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 282
+              lineNumber: 293
             },
             __self: this
           }, "LIVE", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "onoffswitch",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 284
+              lineNumber: 295
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1780,7 +1771,7 @@ function (_Component) {
             id: "myonoffswitch",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 285
+              lineNumber: 296
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
@@ -1788,40 +1779,40 @@ function (_Component) {
             htmlFor: "myonoffswitch",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 293
+              lineNumber: 304
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
             className: "onoffswitch-inner",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 297
+              lineNumber: 308
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
             className: "onoffswitch-switch",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 298
+              lineNumber: 309
             },
             __self: this
           })))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "radiobtn-section",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 303
+              lineNumber: 314
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 304
+              lineNumber: 315
             },
             __self: this
           }, "Target Type: ", data.campaignItem.targetType), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 305
+              lineNumber: 316
             },
             __self: this
           }, "Dynamic Scripts:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
@@ -1831,33 +1822,33 @@ function (_Component) {
             value: _this2.state.dynamicScripts,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 307
+              lineNumber: 318
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
             value: "Yes",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 313
+              lineNumber: 324
             },
             __self: this
           }, "Yes"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
             value: "No",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 314
+              lineNumber: 325
             },
             __self: this
           }, "No")))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CallYourRepContainer, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 319
+              lineNumber: 330
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 320
+              lineNumber: 331
             },
             __self: this
           }, "CALL YOUR REPRESENTATIVE"), _this2.CKEditor && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_this2.CKEditor, {
@@ -1875,20 +1866,20 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 322
+              lineNumber: 333
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "thankYouMessage",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 337
+              lineNumber: 348
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 338
+              lineNumber: 349
             },
             __self: this
           }, "THANK YOU MESSAGE"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -1901,7 +1892,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 339
+              lineNumber: 350
             },
             __self: this
           }), _this2.CKEditor && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_this2.CKEditor, {
@@ -1920,19 +1911,19 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 349
+              lineNumber: 360
             },
             __self: this
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(CallYourRepContainer, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 364
+              lineNumber: 375
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 365
+              lineNumber: 376
             },
             __self: this
           }, "Default Script Version"), _this2.CKEditor && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_this2.CKEditor, {
@@ -1950,14 +1941,21 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 367
+              lineNumber: 378
             },
             __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ScriptListing__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+            className: _this2.state.shouldHideDS ? "hidden" : "",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 394
+            },
+            __self: this
+          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ScriptListing__WEBPACK_IMPORTED_MODULE_9__["default"], {
             props: _this2.props.id,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 382
+              lineNumber: 395
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_8___default.a, {
@@ -1969,17 +1967,23 @@ function (_Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 384
+              lineNumber: 397
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
             className: "addNewScript",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 390
+              lineNumber: 403
             },
             __self: this
-          }, "Add New Script")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          }, "Add New Script"))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 410
+            },
+            __self: this
+          }, "FIND SOMEONE"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Question__WEBPACK_IMPORTED_MODULE_11__["default"], {
             data: data.campaignItem.targetCandidates // questionChoices={questionChoices}
             ,
             questionChoices: _lib_legislators__WEBPACK_IMPORTED_MODULE_17__["legislators"],
@@ -1987,117 +1991,51 @@ function (_Component) {
             targetType: data.campaignItem.targetType,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 394
+              lineNumber: 411
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 402
+              lineNumber: 419
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 403
+              lineNumber: 420
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 404
-            },
-            __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 405
-            },
-            __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "URLPathSettings",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 407
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 408
-            },
-            __self: this
-          }, "URL Path Settings"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 409
-            },
-            __self: this
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-            type: "checkbox",
-            id: "generateURLAlias",
-            name: "generateURLAlias",
-            defaultChecked: data.campaignItem.generateURLAlias == "true" ? true : false,
-            onChange: _this2.handleCheckboxChange,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 410
-            },
-            __self: this
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 421
             },
             __self: this
-          }, "Generate automatic URL alias ", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 422
             },
             __self: this
-          }), " Uncheck this to create a custom alias below")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Tabs__WEBPACK_IMPORTED_MODULE_14__["default"], {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 426
-            },
-            __self: this
-          }, "URL alias", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-            onChange: _this2.handleChange,
-            type: "text",
-            id: "customURL",
-            placeholder: "Custom URL",
-            defaultValue: data.campaignItem.customURL,
-            name: "customURL",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 428
-            },
-            __self: this
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 438
-            },
-            __self: this
-          }, "Optionally specify an alternative URL by which this content can be accessed. For example, type \"about\" when writing an about page. Use a relative path and don't add a trailing slash or the URL alias won't work.")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Tabs__WEBPACK_IMPORTED_MODULE_14__["default"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 447
+              lineNumber: 464
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             label: "Email Share",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 448
+              lineNumber: 465
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "sharebody",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 449
+              lineNumber: 466
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2110,7 +2048,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 450
+              lineNumber: 467
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2123,21 +2061,21 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 459
+              lineNumber: 476
             },
             __self: this
           }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             label: "Facebook Share",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 470
+              lineNumber: 487
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "sharebody",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 471
+              lineNumber: 488
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2150,7 +2088,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 472
+              lineNumber: 489
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2163,7 +2101,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 481
+              lineNumber: 498
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2176,19 +2114,19 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 490
+              lineNumber: 507
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 499
+              lineNumber: 516
             },
             __self: this
           }, "Upload Image", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 501
+              lineNumber: 518
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2198,7 +2136,7 @@ function (_Component) {
             onChange: _this2.uploadFacebookFile,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 502
+              lineNumber: 519
             },
             __self: this
           })), _this2.state.facebookImage && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -2207,7 +2145,7 @@ function (_Component) {
             alt: "Upload Preview",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 511
+              lineNumber: 528
             },
             __self: this
           }), data.campaignItem.facebookImage && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -2216,21 +2154,21 @@ function (_Component) {
             alt: "Upload Preview",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 518
+              lineNumber: 535
             },
             __self: this
           }))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             label: "Twitter Share",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 526
+              lineNumber: 543
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "sharebody",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 527
+              lineNumber: 544
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2243,7 +2181,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 528
+              lineNumber: 545
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2256,7 +2194,7 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 537
+              lineNumber: 554
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2269,19 +2207,19 @@ function (_Component) {
             onChange: _this2.handleChange,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 546
+              lineNumber: 563
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 555
+              lineNumber: 572
             },
             __self: this
           }, "Upload Image", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 557
+              lineNumber: 574
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
@@ -2291,7 +2229,7 @@ function (_Component) {
             onChange: _this2.uploadTwitterFile,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 558
+              lineNumber: 575
             },
             __self: this
           })), _this2.state.twitterImage && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -2300,7 +2238,7 @@ function (_Component) {
             alt: "Upload Preview",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 566
+              lineNumber: 583
             },
             __self: this
           }), data.campaignItem.twitterImage && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
@@ -2309,21 +2247,21 @@ function (_Component) {
             alt: "Upload Preview",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 573
+              lineNumber: 590
             },
             __self: this
           })))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "upload-files",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 583
+              lineNumber: 600
             },
             __self: this
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
             type: "submit",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 584
+              lineNumber: 601
             },
             __self: this
           }, "Save")))));
@@ -2355,7 +2293,7 @@ __webpack_require__.r(__webpack_exports__);
 var MainStyles = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "MainStyles",
   componentId: "oijvxs-0"
-})(["@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');h1,h2,h3,h4,h5,h6,p,a,li,label,button,input{font-family:'Montserrat',sans-serif;}a:hover,button:hover{cursor:pointer;}.hidden{display:none !important;}.expired{width:80%;margin:100px auto;font-size:50px;}#candidateSearch{width:100%;margin:0 0 -1px auto;border:1px solid #000;padding:10px;box-sizing:border-box;input{padding:5px 15px;font-size:16px;width:30%;border-radius:20px;}}#targetPeopleContainer{height:520px;overflow:scroll;border:0px solid black;}#createCampaignItem{max-width:1000px;margin:0 auto;display:block;h1{font-size:50px;margin:0;}}.resetList{float:right;}#createCampaignScriptItem{max-width:1000px;margin:0 auto;display:block;button[type=\"submit\"]{margin:100px 0 10px;font-size:20px;text-indent:10px;width:200px;border:0;color:white;background:#2D4C6B;padding:20px 0px;}}#settargettitle{width:65%;font-size:20px;padding:10px 0;text-indent:10px;}#connectkey{width:45%;font-size:20px;padding:10px 0;text-indent:10px;}#customURL{width:50%;font-size:20px;padding:10px 0;display:block;text-indent:10px;}.radiobtn-section{margin:50px 0;h3{margin:0;}label{margin-right:30px;}select{-webkit-appearance:none;width:100px;font-size:20px;margin-left:10px;background:white;border:none;font-weight:600;}}#generateURLAlias{-webkit-appearance:none;width:30px;height:30px;background:white;border:2px solid #ccc;display:inline-block;vertical-align:middle;margin-right:10px;}#generateURLAlias:checked{background:#333;}label p{display:inline-block;vertical-align:middle;}.URLPathSettings{label{display:block;}h2{margin:0;}}.upload-files{button{padding:10px 40px;background:#2D4C6B;display:block;width:300px;font-size:20px;text-align:center;color:white;margin-bottom:5px;margin-top:50px}}.onoffswitchcontainer{position:absolute;top:10px;right:10%;text-align:center;}.onoffswitch{position:relative;width:90px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}.onoffswitch-checkbox{display:none;}.onoffswitch-label{display:block;overflow:hidden;cursor:pointer;border:2px solid #999999;border-radius:20px;}.onoffswitch-inner{display:block;width:200%;margin-left:-100%;transition:margin 0.3s ease-in 0s;}.onoffswitch-inner:before,.onoffswitch-inner:after{display:block;float:left;width:50%;height:30px;padding:0;line-height:30px;font-size:14px;color:white;font-family:Trebuchet,Arial,sans-serif;font-weight:bold;box-sizing:border-box;}.onoffswitch-inner:before{content:\"ON\";padding-left:10px;background-color:#D56D6D;color:#FFFFFF;}.onoffswitch-inner:after{content:\"OFF\";padding-right:10px;background-color:#EEEEEE;color:#999999;text-align:right;}.onoffswitch-switch{display:block;width:22px;margin:6px;background:#FFFFFF;position:absolute;top:0;bottom:0;right:56px;border:2px solid #999999;border-radius:20px;transition:all 0.3s ease-in 0s;}.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner{margin-left:0;}.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch{right:0px;}.editbtn{background:#2D4C6B;color:white;padding:1px 0;width:90px;margin-right:10px;text-align:center;display:inline-block;}.dupbtn{background:#D56D6D;color:white;padding:1px 0;width:90px;text-align:center;display:inline-block;}td:last-child,th:last-child{border-right:none;border-left:none;width:auto !important;text-align:right;}td,th{border-right:0;border-bottom:2px solid #EDEDED;text-align:center;}a.createnew{color:#2D4C6B;font-size:1.2em;margin:20px auto;display:block;max-width:1000px;}.dashboardh1{margin:20px auto;display:block;max-width:1000px;}.onexp{color:green;}.offexp{color:red;}#searchTypeToggle{width:100%;box-sizing:border-box;background-color:white;box-shadow:0px 1px 2px 1px rgba(0,0,0,0.4);text-align:center;position:relative;border-radius:2px;label{float:left;width:calc(33.333% - 1px);position:relative;padding:20px 0px 40px;overflow:hidden;border-left:solid 1px rgba(0,0,0,0.2);transition:color 0.3s;cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0);input{position:absolute;top:-200%;}div{z-index:5;position:absolute;width:100%;}}label:first-child{border-left:none;}}#searchTypeToggle > div{color:white;padding-top:24px;display:block;position:absolute;top:-4px;left:-4px;bottom:-4px;width:calc(33.33% + 8px);background-color:rgba(50,150,100,1);border-radius:2px;box-shadow:0px 1px 2px 1px rgba(0,0,0,0.4);z-index:1;pointer-events:none;transition:transform 0.3s;}#searchTypeToggle::after{content:\"\";display:block;clear:both;}#searchTypeToggle label.selected{color:white;}#newVersionName{width:65%;font-size:20px;text-indent:10px;padding:10px 0px;}#thankYouTitle{width:100%;margin-bottom:10px;font-size:20px;text-indent:10px;padding:10px 0px;}.ck-content{height:200px;}.setTargetingCondition{textarea{width:100%;height:200px;}select{width:300px;background:white;padding:5px 0;text-indent:10px;font-size:14px;border:1px solid black;border-radius:0;-webkit-appearance:none;margin-bottom:10px;}.newConditionRow{select:last-child{}}}.tabs{border:solid #000;border-width:0px 1px 1px 1px;margin-top:50px;background:#eee;}#emailTitle,#facebookTitle,#twitterTitle{width:100%;font-size:20px;text-indent:10px;margin-bottom:10px;padding:10px 0px;}#emailBody{width:100%;font-size:20px;text-indent:10px;margin-bottom:10px;padding:10px 0px;}.tab-list{border-bottom:1px solid #fff;padding-left:0;margin:0;}.sharebody{padding:25px;}.tab-list-item{display:inline-block;list-style:none;margin-bottom:-1px;width:33.333%;background:#ccc;text-align:center;border:1px solid #111;padding:0.5rem 0.75rem;}.tab-list-active{background-color:#eee;border:solid #000;border-width:1px 0px 0 0px;}#facebookBody{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;display:inline-block;padding:10px 0px;}#facebookURL{margin-bottom:10px;font-size:20px;text-indent:10px;width:50%;margin-right:0%;display:inline-block;padding:10px 0px;}#facebookTitle{margin-bottom:10px;font-size:20px;text-indent:10px;width:47%;margin-right:3%;display:inline-block;padding:10px 0px;}#twitterTitle{margin-bottom:10px;font-size:20px;text-indent:10px;width:47%;margin-right:3%;display:inline-block;padding:10px 0px;}#twitterURL{margin-bottom:10px;font-size:20px;text-indent:10px;width:50%;margin-right:0%;display:inline-block;padding:10px 0px;}#twitterBody{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}.frontEndPage{.frontEndHero{display:flex;.heroLeft{background:#2D4C6B;display:inline-block;vertical-align:middle;padding:50px;width:60%;h1,h2,h3,h4,h5,h6,p,a,li{color:white;}h2{font-size:36px;color:#fff;text-transform:uppercase;}}.heroRight{background:#6C9FC2;vertical-align:middle;display:inline-block;padding:20px 50px;width:40%;h3{color:white;text-align:center;line-height:125%;font-size:16px;}form{input[type=\"text\"]{margin-bottom:10px;font-size:20px;text-indent:10px;border:0;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}input[type=\"number\"]{margin-bottom:10px;font-size:20px;text-indent:10px;border:0;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}input[type=\"submit\"]{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;border:0;color:white;background:#2D4C6B;padding:20px 0px;}}h6{color:white;line-height:125%;}}}}.stepTwoSection{margin:100px 0;.inner{width:80%;margin:0 auto;display:block;.repNameScript{margin:50px 0;h1{margin:0;}.scriptContainer{background:#2D4C6B;color:white;padding:20px;}}h2{font-size:40px;margin-bottom:0;}}}.imDone{background:#D56D6D;text-align:center;padding:15px 0;margin:50px 0 0;position:fixed;bottom:0;width:100%;button{background:white;-webkit-appearance:none;border:none;color:#6C9FC2;border-radius:0;padding:10px 50px;font-size:18px;}a{color:white;margin-left:30px;text-decoration:underline;}}.stepThreeSection{background:#2D4C6B;color:white;padding:100px 0;.stepThreeContainer{margin:0 auto;width:80%;display:block;}h1{font-size:125px;text-align:center;margin:0;color:#6C9FC2;span{color:#D56D6D;}}h2{text-align:center;font-size:40px;}p{color:white;text-align:center;}button{background:#D56D6D;-webkit-appearance:none;border:none;color:#fff;border-radius:0;padding:20px 100px;font-size:18px;display:block;margin:50px auto 0;}}.campaignScripts{h2{border-bottom:3px solid #000;margin:0;}.campaignScriptItem{clear:both;border-bottom:2px solid #000;h3{display:inline-block;margin:0 0 0;vertical-align:text-top;}.editCampaignScript{float:right;margin:5px 0 0;text-align:center;a{background:#2D4C6B;color:white;padding:5px 50px;}h6{margin:0;font-weight:200;}}}}.addNewScript{font-size:20px;color:#6C9FC2;font-weight:600;margin:30px 0 30px;display:block;}.search-div{width:100%;margin:10rem auto 2rem auto;text-align:right;position:relative;.search-box{border:4px solid #08a1b6;border-radius:2px;font-size:2rem;width:100%;padding:1rem;transition:width 0.3s;}.search-btn{height:100%;width:4em;margin-top:-2em;position:absolute;top:50%;right:0.5rem;opacity:0.2;background-color:transparent;border:0;background-repeat:no-repeat;background-size:100%;background-image:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAACnElEQVR4AcXZsUsbYRjH8e+dh2s1SyAGJwMJuDj1BIcEhJQIOnTq5F+QOf0jIq79A7oFh7aYyVBEkaZDC3awECc1AUXRIqUQotfFocnjJe/dk+b9PKP65Md7z13ee3Uwk2SNHKmngs5TnbDLJQqjA+RYZ4OXuDzvkSYf+cAJ44fPAYFhHeAzVhlqBBGrRoax8KjSJYhRXap4KCVoECiqQQKFLC0CZbXIElOBOwJ9cUchzm2Y5QsveN4tdfY4o00HSDHHPKuUmOV5v/D5SSSJ0MXfIY+HBB55dkIvRIIIvJDR28dnFJ/9kHH0MFaVDehRxlSZnuxAFUMZunKQKBJFUQ4wXTIYqcmPZ5GoFmUEahjw5eJTJI6ivBD4jCS/csrEVZZfU4yQk5OPhrwjcoRygQ0GVdCQf73OUEfisaMkHk1HDJHkYeDX82jlBzo+kCSEyxruwDP/EK1DbsWnhHDFgNTpodWjLgY9NECKfnvoyS4p8wBngN5Z/ABtQK8dP0AH0OuYB5iMqfAAMque7HJtHmAOPdnlxjzAPHqyy5V5gFX0ZJfj8AAn9CvhoeVRol8zPMAuj/xrlhW0Vpg1D3ApflhGR3b4wTlDvI24i4u+w9y0uyVrM213U1qxuy2/Z8bui8m23VezgGW7L6cBLdIWXs9FBAsHFCLCJI9opFMKXEzkkEp/IbK0bEdI0LARQRzVWoigPKy+Z5tlWooIiuP6NhVmAEiPNwLkqHDEw5CGx2wyDQDRI8T7l80U19xwxTFNmpwzKM1nFsyeCw7jFymCAxYjrHDp8r9cUOCUYRZ4Bw6AxVV47QJYXIVXLliNsOSC1Qh/XLAa4ZuDmmIcH1l2AaytwhZfmaAkn/qOb7eYBofJekOJJX7znfccAvwFyB3OeNys7d4AAAAASUVORK5CYII=\");}.search-btn:hover{outline:none;opacity:0.4;cursor:pointer;}.search-btn:focus{outline:none;opacity:0.6;}}ul.options{display:block;list-style:none;width:30rem;transition:width 0.3s;margin:auto;position:relative;}ul.options li{display:block;background:white;margin:10px auto;padding:10px;font-size:1.2rem;width:100%;border-radius:2px;}ul.options li:hover{font-weight:bold;color:#00b4cc;cursor:pointer;transition:0.3s all;}ul.options li.option-active{background:whitesmoke;font-size:1.5rem;color:#00b4cc;}.no-options{color:white;}.breadcrumb{font-size:20px;color:#6C9FC2;display:block;margin:-45px auto 45px;width:200px;}.candidatePerson{margin-bottom:-2px;border:2px solid #000;padding:10px;p{margin:0 50px 0 0;width:350px;display:inline-block;vertical-align:middle;}}.switch-field{display:inline-flex;margin-bottom:7px;width:350px;overflow:hidden;input{position:absolute !important;clip:rect(0,0,0,0);height:1px;width:1px;border:0;overflow:hidden;}label{background-color:#fff;color:rgba(0,0,0,0.6);font-size:14px;text-transform:capitalize;line-height:1;font-weight:600;text-align:center;padding:8px 16px;margin-right:-1px;border:1px solid rgba(0,0,0,0.2);box-shadow:inset 1px 1px 1px rgba(0,0,0,0.3),0 1px rgba(255,255,255,0.1);transition:all 0.1s ease-in-out;}label:hover{cursor:pointer;}input:checked + label{background-color:#EBE1D7;box-shadow:none;}input:checked + label.supportLabel{color:#427508;}input:checked + label.opposeLabel{color:#CA4747;}input:checked + label.otherLabel{color:#F9A345;}input:checked + label.noneLabel{color:#000;}label:first-of-type{border-radius:4px 0 0 4px;}label:last-of-type{border-radius:0 4px 4px 0;}}.tag{background-color:#f4f4f4;border:1px solid #e9e9e9;padding:2px 0 2px 2px;border-radius:2px;display:inline-block}.tag:focus-within{background-color:#e9e9e9;border-color:#a0a0a0}.tag-remove{color:#a0a0a0;font-size:75%;line-height:100%;cursor:pointer;background-color:transparent;border:none;outline:none}.tag-remove.disabled,.tag-remove.readOnly{cursor:not-allowed}.tag-remove:focus{color:#3c3c3c}.node>label{cursor:pointer;margin-left:2px}.tag-list{display:inline;padding:0;margin:0}.tag-item{display:inline-block;margin:4px}.tag-item .search{border:none;border-bottom:1px solid #ccc;outline:none}.tag-item:last-child{margin-right:4px}.node{list-style:none;white-space:nowrap;padding:4px}.node.leaf.collapsed{display:none}.node.disabled>*{color:gray;cursor:not-allowed}.node.match-in-children.hide .node-label{opacity:.5}.node.focused{background-color:#f4f4f4}.toggle{white-space:pre;margin-right:4px;cursor:pointer}.toggle:after{content:\" \"}.toggle.collapsed:after{content:\"+\"}.toggle.expanded:after{content:\"-\"}.searchModeOn .toggle{display:none}.checkbox-item,.radio-item{vertical-align:middle;margin:0 4px 0 0}.checkbox-item.simple-select,.radio-item.simple-select{display:none}.hide:not(.match-in-children){display:none}.react-dropdown-tree-select .dropdown{position:relative;display:table;width:100%;}.react-dropdown-tree-select .dropdown .dropdown-trigger{padding:4px;line-height:20px;min-height:200px;display:inline-block;overflow:auto;width:100%;border:1px solid #b9b9b9}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow{cursor:pointer}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.bottom:after{vertical-align:middle;color:#3c3c3c;margin-right:2px}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.top:after{vertical-align:middle;color:#3c3c3c;margin-right:2px}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.disabled{cursor:not-allowed}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.disabled.bottom:after{color:#b9b9b9}.react-dropdown-tree-select .dropdown .dropdown-content{position:absolute;padding:4px;z-index:1;background:#fff;border-top:1px solid rgba(0,0,0,.05);-webkit-box-shadow:0 5px 8px rgba(0,0,0,.15);box-shadow:0 5px 8px rgba(0,0,0,.15)}.react-dropdown-tree-select .dropdown .dropdown-content ul{margin:0;padding:0}"]);
+})(["@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');h1,h2,h3,h4,h5,h6,p,a,li,label,button,input{font-family:'Montserrat',sans-serif;}#pleaseLogIn{width:80%;margin:0 auto;display:block;max-width:1000px;}a:hover,button:hover{cursor:pointer;}.hidden{display:none !important;}.expired{width:80%;margin:100px auto;font-size:50px;}#candidateSearch{width:100%;margin:0 0 -1px auto;border:1px solid #000;padding:10px;box-sizing:border-box;input{padding:5px 15px;font-size:16px;width:30%;border-radius:20px;}}#targetPeopleContainer{height:520px;overflow:scroll;border:0px solid black;}#createCampaignItem{max-width:1000px;margin:0 auto;display:block;h1{font-size:50px;margin:0;}}.resetList{float:right;}#createCampaignScriptItem{max-width:1000px;margin:0 auto;display:block;button[type=\"submit\"]{margin:100px 0 10px;font-size:20px;text-indent:10px;width:200px;border:0;color:white;background:#2D4C6B;padding:20px 0px;}}#settargettitle{width:65%;font-size:20px;padding:10px 0;text-indent:10px;}#connectkey{width:45%;font-size:20px;padding:10px 0;text-indent:10px;}#customURL{width:50%;font-size:20px;padding:10px 0;display:block;text-indent:10px;}.radiobtn-section{margin:50px 0;h3{margin:0;}label{margin-right:30px;}select{-webkit-appearance:none;width:100px;font-size:20px;margin-left:10px;background:white;border:none;font-weight:600;}}#generateURLAlias{-webkit-appearance:none;width:30px;height:30px;background:white;border:2px solid #ccc;display:inline-block;vertical-align:middle;margin-right:10px;}#generateURLAlias:checked{background:#333;}label p{display:inline-block;vertical-align:middle;}.URLPathSettings{label{display:block;}h2{margin:0;}}.upload-files{button{padding:10px 40px;background:#2D4C6B;display:block;width:300px;font-size:20px;text-align:center;color:white;margin-bottom:5px;margin-top:50px}}.onoffswitchcontainer{position:absolute;top:10px;right:10%;text-align:center;}.onoffswitch{position:relative;width:90px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;}.onoffswitch-checkbox{display:none;}.onoffswitch-label{display:block;overflow:hidden;cursor:pointer;border:2px solid #999999;border-radius:20px;}.onoffswitch-inner{display:block;width:200%;margin-left:-100%;transition:margin 0.3s ease-in 0s;}.onoffswitch-inner:before,.onoffswitch-inner:after{display:block;float:left;width:50%;height:30px;padding:0;line-height:30px;font-size:14px;color:white;font-family:Trebuchet,Arial,sans-serif;font-weight:bold;box-sizing:border-box;}.onoffswitch-inner:before{content:\"ON\";padding-left:10px;background-color:#D56D6D;color:#FFFFFF;}.onoffswitch-inner:after{content:\"OFF\";padding-right:10px;background-color:#EEEEEE;color:#999999;text-align:right;}.onoffswitch-switch{display:block;width:22px;margin:6px;background:#FFFFFF;position:absolute;top:0;bottom:0;right:56px;border:2px solid #999999;border-radius:20px;transition:all 0.3s ease-in 0s;}.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner{margin-left:0;}.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch{right:0px;}.editbtn{background:#2D4C6B;color:white;padding:1px 0;width:90px;margin-right:10px;text-align:center;display:inline-block;}.dupbtn{background:#D56D6D;color:white;padding:6.5px 0;width:90px !important;text-align:center;display:inline-block;font-size:1.5rem;border:0;}td:last-child,th:last-child{border-right:none;border-left:none;width:auto !important;text-align:right;}td,th{border-right:0;border-bottom:2px solid #EDEDED;text-align:center;}.createnew{margin:20px auto;display:block;max-width:1000px;a{color:#2D4C6B;font-size:1.2em;}img{width:50px;display:inline-block;vertical-align:middle;margin-right:10px;}}.dashboardh1{margin:20px auto;display:block;max-width:1000px;}.onexp{color:green;}.offexp{color:red;}.executeTasks{display:inline-block;margin:0 0 0 70px;position:relative;a{background:#2D4C6B;color:white;margin-left:200px;padding:5px 20px;}}.select-css{display:inline-block;font-size:14px;font-family:sans-serif;color:#444;line-height:1.3;padding:5px 15px 5px 5px;width:200px;box-sizing:border-box;margin:0;border:1px solid #000;border-radius:0;-moz-appearance:none;-webkit-appearance:none;appearance:none;background-color:#fff;linear-gradient(to bottom,#ffffff 0%,#e5e5e5 100%);background-repeat:no-repeat,repeat;background-position:right .7em top 50%,0 0;background-size:.65em auto,100%;}.select-css::-ms-expand{display:none;}.select-css:hover{border-color:#888;}.select-css:focus{border-color:#aaa;box-shadow:0 0 1px 3px rgba(59,153,252,.7);box-shadow:0 0 0 3px -moz-mac-focusring;color:#222;outline:none;}.select-css option{font-weight:normal;}#searchTypeToggle{width:100%;box-sizing:border-box;background-color:white;box-shadow:0px 1px 2px 1px rgba(0,0,0,0.4);text-align:center;position:relative;border-radius:2px;label{float:left;width:calc(33.333% - 1px);position:relative;padding:20px 0px 40px;overflow:hidden;border-left:solid 1px rgba(0,0,0,0.2);transition:color 0.3s;cursor:pointer;-webkit-tap-highlight-color:rgba(255,255,255,0);input{position:absolute;top:-200%;}div{z-index:5;position:absolute;width:100%;}}label:first-child{border-left:none;}}#searchTypeToggle > div{color:white;padding-top:24px;display:block;position:absolute;top:-4px;left:-4px;bottom:-4px;width:calc(33.33% + 8px);background-color:rgba(50,150,100,1);border-radius:2px;box-shadow:0px 1px 2px 1px rgba(0,0,0,0.4);z-index:1;pointer-events:none;transition:transform 0.3s;}#searchTypeToggle::after{content:\"\";display:block;clear:both;}#searchTypeToggle label.selected{color:white;}#newVersionName{width:65%;font-size:20px;text-indent:10px;padding:10px 0px;}#thankYouTitle{width:100%;margin-bottom:10px;font-size:20px;text-indent:10px;padding:10px 0px;}.ck-content{height:200px;}.setTargetingCondition{textarea{width:100%;height:200px;}select{width:300px;background:white;padding:5px 0;text-indent:10px;font-size:14px;border:1px solid black;border-radius:0;-webkit-appearance:none;margin-bottom:10px;}.newConditionRow{select:last-child{}}}.tabs{border:solid #000;border-width:0px 1px 1px 1px;margin-top:50px;background:#eee;}#emailTitle,#facebookTitle,#twitterTitle{width:100%;font-size:20px;text-indent:10px;margin-bottom:10px;padding:10px 0px;}#emailBody{width:100%;font-size:20px;text-indent:10px;margin-bottom:10px;padding:10px 0px;}.tab-list{border-bottom:1px solid #fff;padding-left:0;margin:0;}.sharebody{padding:25px;}.tab-list-item{display:inline-block;list-style:none;margin-bottom:-1px;width:33.333%;background:#ccc;text-align:center;border:1px solid #111;padding:0.5rem 0.75rem;}.tab-list-active{background-color:#eee;border:solid #000;border-width:1px 0px 0 0px;}#facebookBody{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;display:inline-block;padding:10px 0px;}#facebookURL{margin-bottom:10px;font-size:20px;text-indent:10px;width:50%;margin-right:0%;display:inline-block;padding:10px 0px;}#facebookTitle{margin-bottom:10px;font-size:20px;text-indent:10px;width:47%;margin-right:3%;display:inline-block;padding:10px 0px;}#twitterTitle{margin-bottom:10px;font-size:20px;text-indent:10px;width:47%;margin-right:3%;display:inline-block;padding:10px 0px;}#twitterURL{margin-bottom:10px;font-size:20px;text-indent:10px;width:50%;margin-right:0%;display:inline-block;padding:10px 0px;}#twitterBody{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}.frontEndPage{.frontEndHero{display:flex;.heroLeft{background:#2D4C6B;display:inline-block;vertical-align:middle;padding:50px;width:60%;h1,h2,h3,h4,h5,h6,p,a,li{color:white;}h2{font-size:36px;color:#fff;text-transform:uppercase;}}.heroRight{background:#6C9FC2;vertical-align:middle;display:inline-block;padding:20px 50px;width:40%;h3{color:white;text-align:center;line-height:125%;font-size:16px;}form{input[type=\"text\"]{margin-bottom:10px;font-size:20px;text-indent:10px;border:0;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}input[type=\"number\"]{margin-bottom:10px;font-size:20px;text-indent:10px;border:0;width:100%;margin-right:3%;display:inline-block;padding:10px 0px;}input[type=\"submit\"]{margin-bottom:10px;font-size:20px;text-indent:10px;width:100%;border:0;color:white;background:#2D4C6B;padding:20px 0px;}}h6{color:white;line-height:125%;}}}}.stepTwoSection{margin:100px 0;.inner{width:80%;margin:0 auto;display:block;.repNameScript{margin:50px 0;h1{margin:0;}.scriptContainer{background:#2D4C6B;color:white;padding:20px;}}h2{font-size:40px;margin-bottom:0;}}}.imDone{background:#D56D6D;text-align:center;padding:15px 0;margin:50px 0 0;position:fixed;bottom:0;width:100%;button{background:white;-webkit-appearance:none;border:none;color:#6C9FC2;border-radius:0;padding:10px 50px;font-size:18px;}a{color:white;margin-left:30px;text-decoration:underline;}}.stepThreeSection{background:#2D4C6B;color:white;padding:100px 0;.stepThreeContainer{margin:0 auto;width:80%;display:block;}h1{font-size:125px;text-align:center;margin:0;color:#6C9FC2;span{color:#D56D6D;}}h2{text-align:center;font-size:40px;}p{color:white;text-align:center;}button{background:#D56D6D;-webkit-appearance:none;border:none;color:#fff;border-radius:0;padding:20px 100px;font-size:18px;display:block;margin:50px auto 0;}}.campaignScripts{h2{border-bottom:3px solid #000;margin:0;}.campaignScriptItem{clear:both;border-bottom:2px solid #000;h3{display:inline-block;margin:0 0 0;vertical-align:text-top;}.editCampaignScript{float:right;margin:5px 0 0;text-align:center;a{background:#2D4C6B;color:white;padding:5px 50px;}h6{margin:0;font-weight:200;}}}}.addNewScript{font-size:20px;color:#6C9FC2;font-weight:600;margin:30px 0 30px;display:block;}.search-div{width:100%;margin:10rem auto 2rem auto;text-align:right;position:relative;.search-box{border:4px solid #08a1b6;border-radius:2px;font-size:2rem;width:100%;padding:1rem;transition:width 0.3s;}.search-btn{height:100%;width:4em;margin-top:-2em;position:absolute;top:50%;right:0.5rem;opacity:0.2;background-color:transparent;border:0;background-repeat:no-repeat;background-size:100%;background-image:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAACnElEQVR4AcXZsUsbYRjH8e+dh2s1SyAGJwMJuDj1BIcEhJQIOnTq5F+QOf0jIq79A7oFh7aYyVBEkaZDC3awECc1AUXRIqUQotfFocnjJe/dk+b9PKP65Md7z13ee3Uwk2SNHKmngs5TnbDLJQqjA+RYZ4OXuDzvkSYf+cAJ44fPAYFhHeAzVhlqBBGrRoax8KjSJYhRXap4KCVoECiqQQKFLC0CZbXIElOBOwJ9cUchzm2Y5QsveN4tdfY4o00HSDHHPKuUmOV5v/D5SSSJ0MXfIY+HBB55dkIvRIIIvJDR28dnFJ/9kHH0MFaVDehRxlSZnuxAFUMZunKQKBJFUQ4wXTIYqcmPZ5GoFmUEahjw5eJTJI6ivBD4jCS/csrEVZZfU4yQk5OPhrwjcoRygQ0GVdCQf73OUEfisaMkHk1HDJHkYeDX82jlBzo+kCSEyxruwDP/EK1DbsWnhHDFgNTpodWjLgY9NECKfnvoyS4p8wBngN5Z/ABtQK8dP0AH0OuYB5iMqfAAMque7HJtHmAOPdnlxjzAPHqyy5V5gFX0ZJfj8AAn9CvhoeVRol8zPMAuj/xrlhW0Vpg1D3ApflhGR3b4wTlDvI24i4u+w9y0uyVrM213U1qxuy2/Z8bui8m23VezgGW7L6cBLdIWXs9FBAsHFCLCJI9opFMKXEzkkEp/IbK0bEdI0LARQRzVWoigPKy+Z5tlWooIiuP6NhVmAEiPNwLkqHDEw5CGx2wyDQDRI8T7l80U19xwxTFNmpwzKM1nFsyeCw7jFymCAxYjrHDp8r9cUOCUYRZ4Bw6AxVV47QJYXIVXLliNsOSC1Qh/XLAa4ZuDmmIcH1l2AaytwhZfmaAkn/qOb7eYBofJekOJJX7znfccAvwFyB3OeNys7d4AAAAASUVORK5CYII=\");}.search-btn:hover{outline:none;opacity:0.4;cursor:pointer;}.search-btn:focus{outline:none;opacity:0.6;}}ul.options{display:block;list-style:none;width:30rem;transition:width 0.3s;margin:auto;position:relative;}ul.options li{display:block;background:white;margin:10px auto;padding:10px;font-size:1.2rem;width:100%;border-radius:2px;}ul.options li:hover{font-weight:bold;color:#00b4cc;cursor:pointer;transition:0.3s all;}ul.options li.option-active{background:whitesmoke;font-size:1.5rem;color:#00b4cc;}.no-options{color:white;}.breadcrumb{font-size:20px;color:#6C9FC2;display:block;position:relative;z-index:1000;margin:-45px auto 45px;width:250px;}.candidatePerson{margin-bottom:-2px;border:2px solid #000;padding:10px;p{margin:0 50px 0 0;width:350px;display:inline-block;vertical-align:middle;}}.switch-field{display:inline-flex;margin-bottom:7px;width:350px;overflow:hidden;input{position:absolute !important;clip:rect(0,0,0,0);height:1px;width:1px;border:0;overflow:hidden;}label{background-color:#fff;color:rgba(0,0,0,0.6);font-size:14px;text-transform:capitalize;line-height:1;font-weight:600;text-align:center;padding:8px 16px;margin-right:-1px;border:1px solid rgba(0,0,0,0.2);box-shadow:inset 1px 1px 1px rgba(0,0,0,0.3),0 1px rgba(255,255,255,0.1);transition:all 0.1s ease-in-out;}label:hover{cursor:pointer;}input:checked + label{background-color:#EBE1D7;box-shadow:none;}input:checked + label.supportLabel{color:#427508;}input:checked + label.opposeLabel{color:#CA4747;}input:checked + label.otherLabel{color:#F9A345;}input:checked + label.noneLabel{color:#000;}label:first-of-type{border-radius:4px 0 0 4px;}label:last-of-type{border-radius:0 4px 4px 0;}}.tag{background-color:#f4f4f4;border:1px solid #e9e9e9;padding:2px 0 2px 2px;border-radius:2px;display:inline-block}.tag:focus-within{background-color:#e9e9e9;border-color:#a0a0a0}.tag-remove{color:#a0a0a0;font-size:75%;line-height:100%;cursor:pointer;background-color:transparent;border:none;outline:none}.tag-remove.disabled,.tag-remove.readOnly{cursor:not-allowed}.tag-remove:focus{color:#3c3c3c}.node>label{cursor:pointer;margin-left:2px}.tag-list{display:inline;padding:0;margin:0}.tag-item{display:inline-block;margin:4px}.tag-item .search{border:none;border-bottom:1px solid #ccc;outline:none}.tag-item:last-child{margin-right:4px}.node{list-style:none;white-space:nowrap;padding:4px}.node.leaf.collapsed{display:none}.node.disabled>*{color:gray;cursor:not-allowed}.node.match-in-children.hide .node-label{opacity:.5}.node.focused{background-color:#f4f4f4}.toggle{white-space:pre;margin-right:4px;cursor:pointer}.toggle:after{content:\" \"}.toggle.collapsed:after{content:\"+\"}.toggle.expanded:after{content:\"-\"}.searchModeOn .toggle{display:none}.checkbox-item,.radio-item{vertical-align:middle;margin:0 4px 0 0}.checkbox-item.simple-select,.radio-item.simple-select{display:none}.hide:not(.match-in-children){display:none}.react-dropdown-tree-select .dropdown{position:relative;display:table;width:100%;}.react-dropdown-tree-select .dropdown .dropdown-trigger{padding:4px;line-height:20px;min-height:200px;display:inline-block;overflow:auto;width:100%;border:1px solid #b9b9b9}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow{cursor:pointer}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.bottom:after{vertical-align:middle;color:#3c3c3c;margin-right:2px}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.top:after{vertical-align:middle;color:#3c3c3c;margin-right:2px}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.disabled{cursor:not-allowed}.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.disabled.bottom:after{color:#b9b9b9}.react-dropdown-tree-select .dropdown .dropdown-content{position:absolute;padding:4px;z-index:1;background:#fff;border-top:1px solid rgba(0,0,0,.05);-webkit-box-shadow:0 5px 8px rgba(0,0,0,.15);box-shadow:0 5px 8px rgba(0,0,0,.15)}.react-dropdown-tree-select .dropdown .dropdown-content ul{margin:0;padding:0}"]);
 /* harmony default export */ __webpack_exports__["default"] = (MainStyles);
 
 /***/ }),
@@ -2492,7 +2430,7 @@ var UpdatePage = function UpdatePage(_ref) {
 
 /***/ }),
 
-/***/ 7:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./pages/update.js ***!
   \*******************************/

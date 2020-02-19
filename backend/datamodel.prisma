@@ -80,6 +80,7 @@ type CampaignItem {
   twitterURL: String
   twitterBody: String
   twitterImage: String
+  user: User
 }
 
 type CampaignScript {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import gql from "graphql-tag";
 import Router from 'next/router';
+import Link from "next/link";
 import { Mutation, Query } from "react-apollo";
 import Error from './ErrorMessage';
 import DynamicSelect from "./DynamicSelect";
@@ -109,6 +110,12 @@ class UpdateScript extends Component {
             <Mutation mutation={UPDATE_SCRIPT_MUTATION} variables={this.state}>
               {(updateCampaignScript, { error, loading }) => (
                   <div id="createCampaignScriptItem">
+
+                    <Link href={"/update?id="+data.campaignScript.campaignID}>
+                      <a className="breadcrumb">
+                        Back to Campaign Page
+                      </a>
+                    </Link>
                   <Error error={error} />
 
                   <h1>Update Script</h1>

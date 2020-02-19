@@ -27,8 +27,6 @@ class Question extends React.Component {
         targetTypes: props.targetType
       };
 
-
-      console.log(this.state);
       this.onInput = this.onInput.bind(this);
       this.buildRadioButtons = this.buildRadioButtons.bind(this);
     }
@@ -102,42 +100,22 @@ class Question extends React.Component {
         this.setState({answers}, () => console.log(this.state.answers));
       }
 
-
-
-      // var c = newstateanswers.concat(answers);
-
-      // console.log(stateanswers);
-      // console.log(answers);
-      // console.log(c);
-
-      // var c = newstateanswers.concat(answers);
-      // console.log(c);
-
-      // this.setState({answers: []}, () => console.log(this.state.answers));
-
     }
 
-    // Update answer state to include new candidates
-    // resetList = (event) => {
-    //   event.preventDefault();
-    //   this.setState({names: this.props.questionChoices});
-    //   console.log(this.state.names);
-    // }
 
     onInput(e, props) {
-      e.preventDefault();
+      // e.preventDefault();
       const id = e.target.name;
-      const answer = { id, answer: e.target.value };
+      const answer2 = { id, answer: e.target.value };
       let answers;
-
       if(this.state.answers) {
         if (this.state.answers.some(answer => answer.id === id)) {
-          answers = [...this.state.answers.filter(answer => answer.id !== id), answer];
+          answers = [...this.state.answers.filter(answer => answer.id !== id), answer2];
         } else {
-          answers = [...this.state.answers, answer];
+          answers = [...this.state.answers, answer2];
         }
       } else {
-        answers = [answer];
+        answers = [answer2];
       }
 
       this.setState({ answers }, () => console.log(this.state.answers));
@@ -147,9 +125,6 @@ class Question extends React.Component {
     buildRadioButtons(arr, type, id, checked) {
 
       return arr.map((choice, i) => {
-
-        // console.log(choice);
-        // console.log(checked);
 
         if(choice == checked) {
           return (
@@ -225,11 +200,8 @@ class Question extends React.Component {
       return (
         <React.Fragment>
           <div id="candidateSearch">
-          <label>Filter: </label>
+            <label>Filter: </label>
             <input id="candidateSearch" type="text" placeholder="Search" onChange={this.filterList} />
-
-            {/* <a className="resetList" onClick={this.resetList}>RESET</a> */}
-
             <div className="executeTasks">
 
               <label>Execute: </label>
@@ -238,6 +210,7 @@ class Question extends React.Component {
                 onChange={this.handleSelectChange}
                 value={this.state.candidateStance}
                 name="candidateStance"
+                className="select-css"
               >
                 <option value="">Choose an Option</option>
                 <option value="support">Support</option>

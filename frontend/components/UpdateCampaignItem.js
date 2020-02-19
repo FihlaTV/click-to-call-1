@@ -143,7 +143,9 @@ class UpdateCampaignItem extends Component {
   }
 
   state = {
-    candidatePerspective: []
+    candidatePerspective: [],
+    shouldHideDS: false,
+
   };
 
   handleCheckboxChange = e => {
@@ -191,6 +193,11 @@ class UpdateCampaignItem extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
     console.log({ [name]: value });
+    if(value == 'No') {
+      this.setState({ shouldHideDS: true });
+    } else {
+      this.setState({ shouldHideDS: false });
+    }
   };
 
   uploadTwitterFile = async e => {
@@ -257,6 +264,10 @@ class UpdateCampaignItem extends Component {
           if (loading) return <p>Loading...</p>;
           if (data.item) return <p>No Item Found for ID...</p>;
           if (error) return <p>Error: {error.message}</p>;
+
+          // this.setState({
+          //   facebookImage: data.campaignItem.twitterImage
+          // });
 
           return (
             <Mutation
@@ -379,18 +390,24 @@ class UpdateCampaignItem extends Component {
                         )}
                       </CallYourRepContainer>
 
-                      <ScriptListing props={this.props.id} />
 
-                      <Link
-                        href={{
-                          pathname: "/script",
-                          query: { id: data.campaignItem.id }
-                        }}
-                      >
-                        <a className="addNewScript">Add New Script</a>
-                      </Link>
+                      <div className={ this.state.shouldHideDS ? "hidden" : "" }>
+                        <ScriptListing props={this.props.id} />
+
+                        <Link
+                          href={{
+                            pathname: "/script",
+                            query: { id: data.campaignItem.id }
+                          }}
+                        >
+                          <a className="addNewScript">Add New Script</a>
+                        </Link>
+
+                      </div>
 
 
+
+                        <h2>FIND SOMEONE</h2>
                         <Question
                           data={data.campaignItem.targetCandidates}
                           // questionChoices={questionChoices}
@@ -404,7 +421,7 @@ class UpdateCampaignItem extends Component {
                       <br></br>
                       <br></br>
 
-                      <div className="URLPathSettings">
+                      {/* <div className="URLPathSettings">
                         <h2>URL Path Settings</h2>
                         <label>
                           <input
@@ -442,7 +459,7 @@ class UpdateCampaignItem extends Component {
                           don't add a trailing slash or the URL alias won't
                           work.
                         </p>
-                      </div>
+                      </div> */}
 
                       <Tabs>
                         <div label="Email Share">

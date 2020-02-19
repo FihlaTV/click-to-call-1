@@ -60,8 +60,8 @@ const Permissions = (props) => (
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                {/* {possiblePermissions.map(permission => <th key={permission}>{permission}</th>)} */}
-                                <th>Delete</th>
+                                {possiblePermissions.map(permission => <th key={permission}>{permission}</th>)}
+                                <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -116,7 +116,7 @@ class UserPermissions extends React.Component {
             <tr>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                {/* {possiblePermissions.map(permission => (
+                {possiblePermissions.map(permission => (
                   <td key={permission}>
                       <label htmlFor={`${user.id}-permission-${permission}`}>
                           <input
@@ -129,14 +129,14 @@ class UserPermissions extends React.Component {
                             ></input>
                       </label>
                   </td>
-                ))} */}
+                ))}
                 <td>
                     <SickButton
                         type="button"
                         disabled={loading}
                         onClick={updatePermissions}
                     >
-                        Delet{loading ? 'ing' : 'e'}
+                        Sav{loading ? 'ing' : 'e'}
                     </SickButton>
                 </td>
             </tr>

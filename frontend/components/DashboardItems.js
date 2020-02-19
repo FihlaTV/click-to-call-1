@@ -14,6 +14,10 @@ const ALL_DASHBOARD_ITEMS_QUERY = gql`
       title
       expiration
       customURL
+      user {
+        id
+        name
+      }
     }
   }
 `;

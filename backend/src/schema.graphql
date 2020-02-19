@@ -20,6 +20,7 @@ type Mutation {
   updateCampaignItem(id: ID!, title: String, expiration: String, connectKey: String, targetType: String, dynamicScripts: String, generateURLAlias: String, customURL: String, callBody: String, defaultScript: String, targetCandidates: Json, thankYouTitle: String, thankYouMessage: String, emailTitle: String, emailBody: String, facebookTitle: String, facebookURL: String, facebookBody: String, facebookImage: String, twitterTitle: String, twitterURL: String, twitterBody: String, twitterImage: String): CampaignItem!
   createCampaignScript(title: String!, scriptContent: String, campaignID: String, data: Json, targetCondition2: String, targetCondition3: String, targetCondition4: String ): CampaignScript!
   updateCampaignScript(id: ID!, title: String, scriptContent: String, campaignID: String, data: Json, targetCondition2: String, targetCondition3: String, targetCondition4: String): CampaignScript!
+  deleteCampaignItem(id: ID!): CampaignItem
 
 }
 

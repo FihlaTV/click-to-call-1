@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import { ALL_ITEMS_QUERY } from './Items';
+import { ALL_DASHBOARD_ITEMS_QUERY } from './DashboardItems';
 
 const DELETE_ITEM_MUTATION = gql`
   mutation DELETE_ITEM_MUTATION($id: ID!) {
-    deleteItem(id: $id) {
+    deleteCampaignItem(id: $id) {
       id
     }
   }
 `;
 
 class DeleteItem extends Component {
+
   update = (cache, payload) => {
     // manually update the cache on the client, so it matches the server
     // 1. Read the cache for the items we want
-    const data = cache.readQuery({ query: ALL_ITEMS_QUERY });
-    console.log(data, payload);
+    const data = cache.readQuery({ query: ALL_DASHBOARD_ITEMS_QUERY });
+
     // 2. Filter the deleted item out of the page
-    data.items = data.items.filter(item => item.id !== payload.data.deleteItem.id);
+    data.campaignItems = data.campaignItems.filter(item => item.id !== payload.data.deleteCampaignItem.id);
     // 3. Put the items back!
-    cache.writeQuery({ query: ALL_ITEMS_QUERY, data });
+    cache.writeQuery({ query: ALL_DASHBOARD_ITEMS_QUERY, data });
   };
   render() {
     return (
@@ -29,11 +30,12 @@ class DeleteItem extends Component {
         variables={{ id: this.props.id }}
         update={this.update}
       >
-        {(deleteItem, { error }) => (
+        {(deleteCampaignItem, { error }) => (
           <button
+            className="dupbtn"
             onClick={() => {
               if (confirm('Are you sure you want to delete this item?')) {
-                deleteItem().catch(err => {
+                deleteCampaignItem().catch(err => {
                   alert(err.message);
                 });
               }

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import DashboardItem from './DashboardItem';
 import DashboardItems from './DashboardItems';
 import Search from './Search';
-
 import Table from './styles/Table'
 import MainStyles from './styles/MainStyles'
 
@@ -14,11 +13,13 @@ class Dashboard extends Component {
       <MainStyles>
 
         <h1 className="dashboardh1">CLICK TO CALL LISTING</h1>
-        <Link href="/item">
-          <a className="createnew">
-            Create New
-          </a>
-        </Link>
+        <div className="createnew">
+          <Link href="/item">
+            <a>
+              <img src="/static/plus.png" />  Create New
+            </a>
+          </Link>
+        </div>
 
           <Table>
             <thead>

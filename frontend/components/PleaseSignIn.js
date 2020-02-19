@@ -5,6 +5,8 @@ import Signin from './Signin';
 import Dashboard from './Dashboard';
 import Signout from './Signout';
 import Permissions from './Permissions';
+import MainStyles from "./styles/MainStyles";
+
 
 
 const PleaseSignIn = (props) => (
@@ -13,10 +15,12 @@ const PleaseSignIn = (props) => (
             if (loading) return <p>Loading...</p>;
             if (!data.me) {
                 return (
-                    <div>
-                        <h1>CLICK TO CALL</h1>
-                        <Signin />
-                    </div>
+                    <MainStyles>
+                        <div id="pleaseLogIn">
+                            <h1>CLICK TO CALL</h1>
+                            <Signin />
+                        </div>
+                    </MainStyles>
                 );
             } else {
                 return (

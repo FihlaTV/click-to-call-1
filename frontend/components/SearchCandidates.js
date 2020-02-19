@@ -2,6 +2,17 @@ import React from 'react';
 
 class SearchCandidates extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.setState({
+      initialItems: this.props.content,
+      items: this.props.content,
+      data: this.props.data
+
+    })
+  }
+
     state = {
         initialItems: [],
         items: []
@@ -21,14 +32,6 @@ class SearchCandidates extends React.Component {
       this.setState({data: this.props.data});
     }
 
-    componentWillMount = () => {
-      this.setState({
-          initialItems: this.props.content,
-          items: this.props.content,
-          data: this.props.data
-
-      })
-    }
 
     render() {
       return (

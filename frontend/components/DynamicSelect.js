@@ -10,7 +10,7 @@ class DynamicSelect extends Component{
         this.state = { data: props.data }
       }
 
-      componentWillReceiveProps = (nextProps) => {
+      getDerivedStateFromProps = (nextProps) => {
         if(!isEqual(nextProps.data, this.state.data)) {
           this.setState({ data: nextProps.data });
         }

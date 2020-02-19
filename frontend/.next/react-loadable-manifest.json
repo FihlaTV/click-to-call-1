@@ -1,5 +1,5 @@
 {
-  "/Users/samkahle/Documents/GitHub/click-to-call/frontend/noop": [
+  "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
       "name": "./node_modules/next/dist/client/noop.js",

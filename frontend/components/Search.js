@@ -18,7 +18,7 @@ const SEARCH_ITEMS_QUERY = gql`
 
 function routeToItem(item) {
   Router.push({
-    pathname: '/item',
+    pathname: '/update',
     query: {
       id: item.id,
     },
@@ -49,7 +49,7 @@ class AutoComplete extends React.Component {
   render() {
     return (
       <SearchStyles>
-        <Downshift>
+        <Downshift onChange={routeToItem} itemToString={item => (item === null ? '' : item.title)}>
           {({getInputProps, getItemProps, isOpen, inputValue, highlightedIndex}) => (
         <div>
           <ApolloConsumer>
@@ -72,14 +72,13 @@ class AutoComplete extends React.Component {
           { isOpen && (
             <DropDown>
               {this.state.items.map((item, index) => (
-                console.log(item)
-                // <DropDownItem
-                //   {...getItemProps({item})}
-                //   key={item.id}
-                //   highlighted={index === highlightedIndex}
-                // >
-                //   {item.title}
-                // </DropDownItem>
+                <DropDownItem
+                  {...getItemProps({item})}
+                  key={item.id}
+                  highlighted={index === highlightedIndex}
+                >
+                  {item.title}
+                </DropDownItem>
               ))}
             </DropDown>
           )}
